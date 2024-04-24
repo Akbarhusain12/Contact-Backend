@@ -39,7 +39,7 @@ Before running the application, make sure you have Node.js and MongoDB installed
 ## Usage
 Interacting with the API using Postman. You can use Postman to interact with the API endpoints :
 
-Document :-[https://documenter.getpostman.com/view/31958501/2sA3BrXpxb](url)
+Document :-[https://documenter.getpostman.com/view/31958501/2sA3BrXpxb]
 
 ## API Endpoints
 **`GET`** `/api/contacts`: Get all contacts.
