@@ -2,32 +2,31 @@ import asyncHandler from "express-async-handler";
 import jwt from "jsonwebtoken";
 
 const validateToken = asyncHandler(async (req, res, next) => {
-    let token;
-    const authHeader = req.headers.authorization
-    if (authHeader && authHeader.startsWith("Bearer")) {
-        token = authHeader.split(" ")[1]
-        jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
-            if (err) {
-                res.status(401)
-                throw new Error("User is not authorized")
-            }
-            // console.log(decoded)
-            req.user = {
-                username: decoded.username,
-                email: decoded.email,
-                id: decoded.id,
-            };
-            next();
-        })
-        if (!token) {
-            res.status(401)
-            throw new Error("token is missing")
-        }
-    }
-    else {
-        res.status(401);
-        throw new Error("Authorization header is missing or invalid");
-    }
-})
+    const authHeader = req.headers.authorization;
 
-export default validateToken
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+        console.error("Authorization header missing or invalid");
+        return res.status(401).json({ error: "User is not authorized" });
+    }
+
+    const token = authHeader.split(" ")[1];
+    if (!token) {
+        console.error("Token is missing");
+        return res.status(401).json({ error: "User is not authorized" });
+    }
+
+    try {
+        const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+        req.user = {
+            username: decoded.username,
+            email: decoded.email,
+            id: decoded._id,
+        };
+        next();
+    } catch (err) {
+        console.error("JWT verification error:", err.message);
+        return res.status(401).json({ error: "User is not authorized" });
+    }
+});
+
+export default validateToken;
