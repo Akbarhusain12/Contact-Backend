@@ -23,7 +23,7 @@ Before running the application, make sure you have Node.js and MongoDB installed
    ```
 2. Install dependencies:
    ```bash
-   npm i bcrypt mongoose express dotenv jsonwebtoken express-async-handler
+   npm i bcrypt mongoose express dotenv jsonwebtoken express-async-handler nodemon
    ```
 3. Set up environment variables: Create a .env file in the root directory and define the following variables:
     ```bash
