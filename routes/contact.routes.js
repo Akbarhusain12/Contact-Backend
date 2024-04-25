@@ -6,21 +6,21 @@ import {
     updateContact,
     deleteContact
 } from "../controllers/contact.controller.js";
+
 import validateToken from "../middleware/validateToken.middleware.js";
 
 const router = express.Router();
 
 // Middleware to validate token for all routes in this router
-router.use(validateToken);
+// router.use(validateToken);
 
-// Define routes for handling contacts
 router.route("/")
-    .get(getContacts)  // GET request to fetch all contacts
-    .post(createContact);  // POST request to create a new contact
+    .get(getContacts)  
+    .post(createContact);  
 
 router.route("/:id")
-    .get(getContactById)  // GET request to fetch a specific contact by ID
-    .put(updateContact)   // PUT request to update a contact by ID
-    .delete(deleteContact);  // DELETE request to delete a contact by ID
+    .get(getContactById) 
+    .put(updateContact)  
+    .delete(deleteContact);  
 
 export default router;

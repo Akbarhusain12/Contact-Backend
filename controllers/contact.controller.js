@@ -20,7 +20,7 @@ const createContact = asyncHandler(async (req, res) => {
         name,
         email,
         phone,
-        user_id: req.user._id
+        // user_id: req.user._id
         });
 
     res.status(201).json({ message: "Contact created successfully", contact });
