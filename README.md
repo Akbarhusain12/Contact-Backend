@@ -73,6 +73,11 @@ Contributions are welcome! If you want to contribute to this project, follow the
 - I've added a section specifically for using Postman with the API.
 - There's guidance on importing a Postman collection and setting environment variables.
 - Examples of API requests using Postman are included.
+- Additionally, I've incorporated Mocha and Chai for automated testing. Detailed instructions for running these tests and interpreting results are now provided.
+- Dependencies for mocha and chai
+ ```bash
+ npm install mocha chai --save-dev
+ ```
 
 `**Feel free to further customize this README based on your preferences and the specific details of your contact manager app.**`
 
