@@ -3,7 +3,7 @@ import { Contact } from "../models/contact.model.js";
 
 // Get contacts for the authenticated user
 const getContacts = asyncHandler(async (req, res) => {
-    const contacts = await Contact.find({ user_id: req.id});
+    const contacts = await Contact.find({ user_id: req.id });
     res.status(200).json(contacts);
 });
 
@@ -21,7 +21,7 @@ const createContact = asyncHandler(async (req, res) => {
         email,
         phone,
         user_id: req.user._id
-        });
+    });
 
     res.status(201).json({ message: "Contact created successfully", contact });
 });
@@ -72,7 +72,7 @@ const deleteContact = asyncHandler(async (req, res) => {
         throw new Error("User don't have permission to delete other user contact")
     }
 
-    await Contact.deleteOne({_id:req.params.id})
+    await Contact.deleteOne({ _id: req.params.id })
     res.status(200).json({ message: "Contact deleted successfully", contact })
 })
 
