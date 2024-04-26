@@ -20,7 +20,7 @@ const createContact = asyncHandler(async (req, res) => {
         name,
         email,
         phone,
-        // user_id: req.user._id
+        user_id: req.user._id
         });
 
     res.status(201).json({ message: "Contact created successfully", contact });
@@ -69,7 +69,7 @@ const deleteContact = asyncHandler(async (req, res) => {
 
     if (contact.user_id !== req.id) {
         res.status(403)
-        throw new Error("User don't have permission to update other user contact")
+        throw new Error("User don't have permission to delete other user contact")
     }
 
     await Contact.deleteOne({_id:req.params.id})

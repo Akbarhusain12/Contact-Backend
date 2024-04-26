@@ -12,7 +12,7 @@ import validateToken from "../middleware/validateToken.middleware.js";
 const router = express.Router();
 
 // Middleware to validate token for all routes in this router
-// router.use(validateToken);
+router.use(validateToken);
 
 router.route("/")
     .get(getContacts)  
