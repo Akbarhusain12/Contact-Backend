@@ -79,5 +79,5 @@ Contributions are welcome! If you want to contribute to this project, follow the
  npm install mocha chai --save-dev
  ```
 
-`**Feel free to further customize this README based on your preferences and the specific details of your contact manager app.**`
+`Feel free to further customize this README based on your preferences and the specific details of your contact manager app.`
 
